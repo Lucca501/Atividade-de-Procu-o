@@ -1,0 +1,71 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+                              //usuário: Lucca501
+int main() {
+    float num,resultado;
+    int opcao, num1, num2, opt, potencia;
+    
+    printf("Olá, prazer em te conhecer, sou Lucca Spier Gonçalves, do curso Tecnologia em gestão da tecnologia da informação, da Universidade LaSalle, minha matrícula é 202211660.\n");
+    printf("Escolha qual das opções deseja pra calcular:\n");
+    printf("\n"); // Minha apresentação
+    do {
+        printf("1 - Calcular na Raiz Quadrada\n");
+        printf("2 - Ver outras opções de calculo\n");
+        scanf("%d", &opt); //Irá escolher uma das duas opções, caso queira raiz aperte , caso queira soma, subtração etc.. aperte 2
+        
+        if (opt == 1)
+        {
+            printf("Digite um numero: ");
+            scanf("%f", &num);
+            resultado = sqrt(num);
+            printf("O resultado da raiz quadrada do numero é: %.3f", resultado);
+            break; //Cálculo de raiz quadrada
+        }
+        else if (opt == 2)
+        {
+            printf("\n1 - Soma\n2 - Subtracao\n3 - Multiplicacao\n4 - Divisao\n5 - Potência\n0 - Sair\n\n");
+        scanf("%d", &opcao); //Aqui escolherá o meio de cálculo que deseja
+
+        if(opcao > 0 && opcao < 6){
+            printf("Digite dois valores: ");
+            scanf("%d%d",&num1, &num2);
+        }
+
+        switch(opcao) {
+        case 0:
+            printf("Saindo...\n");
+            break;
+        case 1://Cálculo de soma
+            printf("Soma: %d\n", num1 + num2);
+            break;
+        case 2://Cálculo de subtração
+            printf("Subtracao: %d\n", num1 - num2);
+            break;
+        case 3:
+            printf("Multiplicacao: %d\n", num1 * num2);
+            break;
+        case 4://Cálculo de divisão
+            while(num2 == 0) {
+                printf("Nao existe divisao por zero!\nDigite outro valor: ");
+                scanf("%d", &num2);
+            }
+            printf("Divisao: %d\n", num1 / num2);
+            break;
+        case 5://Cálculo de potências
+            potencia = pow(num1,2);
+            printf("Potência: %d\n", potencia);
+            break;
+        default:
+            printf("Opcao inválida.\nDigite outra opcao: ");
+            }
+        }
+        
+    } while (opt !=2);
+    //system("Pause");
+    return 0;
+    
+    //adaptado desse código https://wagnergaspar.com/exercicio-8-faca-uma-calculadora-para-as-4-operacoes-matematicas-com-switch-case/
+    
+}
